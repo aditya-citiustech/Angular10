@@ -1,0 +1,30 @@
+<h4>Template-Driven Form</h4>
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+    <div>
+        <label>UserName</label>
+        <input type="text" ngModel #userName="ngModel" name="userName" required minlength="4" maxlength="10">
+        <!-- {{userName.errors | json}}
+            {{userName.touched | json}} -->
+        <div *ngIf="userName.touched && !userName.valid">
+            <div *ngIf="userName.errors && userName.errors['required']">userName is required.</div>
+            <div *ngIf="userName.errors && userName.errors['minlength']">userName is minimum {{ userName.errors &&
+                userName.errors['minlength'].requiredLength }} character.</div>
+            <div *ngIf="userName.errors && userName.errors['maxlength']">First Name is maximum 10 character.</div>
+        </div>
+    </div>
+    <div>
+        <label for="">Password</label>
+        <input type="password" ngModel #password="ngModel" name="password" required minlength="4" maxlength="10">
+        <div *ngIf="password.touched && !password.valid">
+            <div *ngIf="password.errors && password.errors['required']">Password is required</div>
+            <div *ngIf="password.errors && password.errors['minlength']">Minimum {{password.errors['minlength']}}
+                characters</div>
+            <div *ngIf="password.errors && password.errors['maxlength']">Maximun {{password.errors['maxlength']}}
+                characters</div>
+        </div>
+    </div>
+    <div>
+        {{contactForm.valid}}
+        <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+    </div>
+</form>

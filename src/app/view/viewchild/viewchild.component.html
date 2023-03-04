@@ -1,0 +1,14 @@
+<h4>ViewChild</h4>
+
+<div #title>
+    <p>Checking the elementref</p>
+    <h6>with P and h6 tag</h6>
+</div>
+<input #inpVal type="text" [(ngModel)] = "tsvalue">
+
+/*Accessing child component methods*/ 
+<h4>Counter value {{mini.counter}}</h4>
+<button (click)="Increment()">Increment</button>
+<button (click)="Decrement()">Decrement</button>
+<app-mini #mini></app-mini>
+

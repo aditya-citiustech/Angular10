@@ -1,0 +1,26 @@
+<h4>Predefined Pipes</h4>
+
+<p>{{'Aditya'|lowercase}}</p>
+<p>{{'Aditya'|uppercase}}</p>
+<p>{{0.1234|percent}}</p>
+<p>{{[1,2,3,4,5,6]|slice:2:4}}</p>
+
+//async pipe
+<div *ngFor="let user of users | async">
+    <li>{{user.id}}</li>
+</div>
+
+//custom pipe
+
+<div *ngFor="let person of people" [ngSwitch]="person.country">
+<li *ngSwitchCase="'USA'">{{person.name|reverse}}</li>
+<li *ngSwitchCase="'HK'">{{person.age}}</li>
+<li *ngSwitchCase="'Mars'">{{person.country}}</li>
+<li *ngSwitchDefault>{{"person not found"}}</li>
+
+
+</div>
+
+
+
+

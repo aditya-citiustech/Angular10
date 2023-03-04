@@ -1,0 +1,16 @@
+<h4>Reactive Forms</h4>
+
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <div>
+        <label>UserName</label>
+        <input type="text" placeholder="Enter username" formControlName="user" />
+        <span *ngIf="user && user.touched && user.invalid">Please Enter Username</span>
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" placeholder="Enter password" formControlName="password">
+        <span *ngIf="password && password.invalid && password.touched">Please Enter Password</span>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid">submit</button>
+
+</form>

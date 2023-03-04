@@ -1,0 +1,7 @@
+
+<h4>Communication</h4>
+<p>parent component</p>
+<p>Receiving from child : {{parentDa}}</p>
+<app-child [dataFromParent] = "data"
+(outputEmitter)="receiveChildData($event)"></app-child>
+<hr>
